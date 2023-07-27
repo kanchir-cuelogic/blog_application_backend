@@ -1,5 +1,6 @@
 package com.app.bloging.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,28 +14,36 @@ import javax.validation.constraints.NotEmpty;
 public class UserRegistration {
 
 	@Id
+	@Column(name = "ID")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-	/** The userName. */
-	@NotEmpty(message = "userName should not null or empty")
-	private String userName;
-	
-	/** The password. */
-	@NotEmpty(message = "password should not null or empty")
-	private String password;
+
+	@Column(name = "EMAIL")
+	private String email;
 	
 	/** The firstName. */
+	@Column(name = "FIRST_NAME")
 	@NotEmpty(message = "firstName should not null or empty")
 	private String firstName;
-	
-	/** The userName. */
+
+	/** The LASTNAME. */
+	@Column(name = "LAST_NAME")
 	@NotEmpty(message = "lastName should not null or empty")
 	private String lastName;
 	
-	private String email;
+	/** The password. */
+	@Column(name = "PASSWORD")
+	@NotEmpty(message = "password should not null or empty")
+	private String password;
 	
+	@Column(name = "PHONE_NUMBER")
 	private String phoneNumber;
+	
+	/** The userName. */
+	@Column(name = "USER_NAME")
+	@NotEmpty(message = "userName should not null or empty")
+	private String userName;
 
 	/**
 	 * @return the id

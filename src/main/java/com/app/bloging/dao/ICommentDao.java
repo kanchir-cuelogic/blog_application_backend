@@ -19,7 +19,6 @@ public interface ICommentDao extends JpaRepository<Comment, Long>{
 //	public List<Comment> findByBlog(Blog blog);
 	
 	//public List<Comment> findByBlog(Blog blog);
-	@Query( "select o from Comment o where o.blog.id = :blogId" )
 	List<Comment> findAllCommentByBlogId(Long blogId);
 
 }
