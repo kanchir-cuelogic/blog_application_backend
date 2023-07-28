@@ -1,35 +1,29 @@
 package com.app.bloging.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name= "BLOG_COMMENTS")
 public class Comment {
-
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name="COMMENT_ID")
 	private Long commentId;
 
-	private String commentDetail;
-	
+	@Column(name="BLOG_ID")
 	private Long blogId;
-
-	@ManyToOne(fetch = FetchType.EAGER)
-	private Blog blog;
+	
+	@Column(name="COMMENT_DETAIL")
+	private String commentDetail;
 
 	/**
 	 * @return the blogId
 	 */
-	@JsonIgnore
 	public Long getBlogId() {
 		return blogId;
 	}
@@ -69,24 +63,10 @@ public class Comment {
 		this.commentDetail = commentDetail;
 	}
 
-	/**
-	 * @return the blog
-	 */
-	@JsonIgnore
-	public Blog getBlog() {
-		return blog;
-	}
-
-	/**
-	 * @param blog the blog to set
-	 */
-	public void setBlog(Blog blog) {
-		this.blog = blog;
-	}
-
+	
 	@Override
 	public String toString() {
-		return "BlogComments [commentId=" + commentId + ", commentDetail=" + commentDetail + ", blog=" + blog + "]";
+		return "BlogComments [commentId=" + commentId + ", commentDetail=" + commentDetail + ", blogId=" +  blogId + "]";
 	}
 	
 }

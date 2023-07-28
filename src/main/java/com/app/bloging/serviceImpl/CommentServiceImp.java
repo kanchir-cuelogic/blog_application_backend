@@ -23,13 +23,8 @@ public class CommentServiceImp implements ICommentService{
 	private IBlogDao blogDao;
 	
 	 @Override
-	  public Comment createComment(Comment comment) { 
-		Comment comm =  new Comment();
-		Long id = comment.getBlogId();
- 	    Optional<Blog> blogData = this.blogDao.findById(id);
- 	    comm.setBlog(blogData.get());
- 	    comm.setCommentDetail(comment.getCommentDetail());
-	    return this.commentDao.save(comm);
+	  public Comment createComment(Comment comment) {
+	    return this.commentDao.save(comment);
 	  }
 	 
 	 @Override

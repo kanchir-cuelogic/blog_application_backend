@@ -4,8 +4,8 @@ import com.app.bloging.model.UserRegistration;
 
 public interface IUserService {
 	
-	public UserRegistration createUser(UserRegistration user);
+	public Object createUser(UserRegistration user);
 
-	public String validateUserByNameAndPassword(String userName, String password);
+	public Object validateUserByNameAndPassword(String userName, String password);
 
 }
